@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - ground
+  - projectile
+  - bounding area
+  - player
+  - enemy
+  - item
+  - transition area
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Items
+    uniqueID: 945031137
+    locked: 0
+  - name: Enemies
+    uniqueID: 1295279455
+    locked: 0
+  - name: Projectiles
+    uniqueID: 260758097
+    locked: 0
+  - name: Player
+    uniqueID: 3066294119
+    locked: 0
+  - name: Ground
+    uniqueID: 2271478361
+    locked: 0
