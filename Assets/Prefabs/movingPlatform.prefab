@@ -50,7 +50,7 @@ MonoBehaviour:
   endPoint: {fileID: 2875376322790520310}
   platform: {fileID: 2875376322849276127}
   moveRate: 2
-  pauseTime: 1
+  pauseTime: 2
   rb: {fileID: 2875376322849276126}
 --- !u!1 &2875376321089712923
 GameObject:

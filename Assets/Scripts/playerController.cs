@@ -102,9 +102,9 @@ public class playerController : MonoBehaviour
         
         if (grounded) {
             perp = groundChecker.perp;
-            rb.MovePosition(rb.position + (velocity + perp*moveInput.x) * runSpeed * Time.fixedDeltaTime);
+            rb.velocity = (velocity + perp*moveInput.x) * runSpeed;
         } else {
-            rb.MovePosition(rb.position + (velocity + moveInput) * runSpeed * Time.fixedDeltaTime);
+            rb.velocity = (velocity + moveInput) * runSpeed;
         }
     }
 }

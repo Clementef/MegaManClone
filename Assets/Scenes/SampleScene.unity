@@ -248,6 +248,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: movingPlatform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2875376320891415443, guid: 1c8d6b6050e6e7c48a6f2294518e5ecf,
+        type: 3}
+      propertyPath: m_TagString
+      value: MovingPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 2875376321089712922, guid: 1c8d6b6050e6e7c48a6f2294518e5ecf,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -267,6 +272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2875376322849276126, guid: 1c8d6b6050e6e7c48a6f2294518e5ecf,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2875376322849276127, guid: 1c8d6b6050e6e7c48a6f2294518e5ecf,
         type: 3}
@@ -3835,6 +3845,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: movingPlatform (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2875376320891415443, guid: 1c8d6b6050e6e7c48a6f2294518e5ecf,
+        type: 3}
+      propertyPath: m_TagString
+      value: MovingPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 2875376322790520310, guid: 1c8d6b6050e6e7c48a6f2294518e5ecf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3844,6 +3859,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2875376322849276126, guid: 1c8d6b6050e6e7c48a6f2294518e5ecf,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2875376322849276127, guid: 1c8d6b6050e6e7c48a6f2294518e5ecf,
         type: 3}
@@ -4479,6 +4499,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: movingPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2875376320891415443, guid: 1c8d6b6050e6e7c48a6f2294518e5ecf,
+        type: 3}
+      propertyPath: m_TagString
+      value: MovingPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2875376322849276126, guid: 1c8d6b6050e6e7c48a6f2294518e5ecf,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c8d6b6050e6e7c48a6f2294518e5ecf, type: 3}
