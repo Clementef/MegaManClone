@@ -30,13 +30,12 @@ public class groundChecker : MonoBehaviour
 	    CheckIfGrounded (collider);
 	}
 
-	void OnCollisionExit2D(Collision2D collider)
-	{
-	    grounded = false;
-	    pc.followPlatform = null;
+	void OnCollisionExit2D(Collision2D collider) {
+		grounded = false;
 	    normal = new Vector2(0,0);
 	    contactPoint = new Vector2(0,0);
 	    perp = new Vector2(0,0);
+	    pc.followPlatform = null;
 	}
 
 	private void CheckIfGrounded(Collision2D collider)
@@ -69,7 +68,6 @@ public class groundChecker : MonoBehaviour
 			//Debug.DrawRay(contactPoint, perp/10, Color.red, .1f);
 		} else {
 			hits = null;
-			pc.followPlatform = null;
 		}
 
 	    if (hits.Length>0) {

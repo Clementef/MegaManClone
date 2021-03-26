@@ -10,6 +10,7 @@ public class movingPlatform : MonoBehaviour
     public float moveRate;
     public float pauseTime;
     public Rigidbody2D rb;
+    public Rigidbody2D playerRB;
     Vector3 target;
     int targetID;
     bool pausing;

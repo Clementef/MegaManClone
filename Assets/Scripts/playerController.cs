@@ -86,33 +86,31 @@ public class playerController : MonoBehaviour
     void FixedUpdate() {
         //platform movement
         rb.velocity = new Vector2(0,0);
-        Vector3 differenceVector = Vector3.zero;
-        if (followPlatform != null) {
-            if (oldPlatPosition == Vector3.zero) {
-                oldPlatPosition = followPlatform.position;
-            } else {
-                print("old pos " + oldPlatPosition);
-                newPlatPosition = followPlatform.position;
-                print("new pos " + newPlatPosition);
-                differenceVector = newPlatPosition-oldPlatPosition;
-                oldPlatPosition = newPlatPosition;
-                newPlatPosition = Vector3.zero;
-                print("generated diference vec" + differenceVector);
-            }
-        } else {
-            oldPlatPosition = Vector3.zero;
-            newPlatPosition = Vector3.zero;
-        }
+        // Vector3 differenceVector = Vector3.zero;
+        // if (followPlatform != null) {
+        //     if (oldPlatPosition == Vector3.zero) {
+        //         oldPlatPosition = followPlatform.position;
+        //     } else {
+        //         newPlatPosition = followPlatform.position;
+        //         differenceVector = newPlatPosition-oldPlatPosition;
+        //         oldPlatPosition = newPlatPosition;
+        //         newPlatPosition = Vector3.zero;
+        //         print("generated diference vec" + differenceVector.ToString("F4"));
+        //     }
+        // } else {
+        //     oldPlatPosition = Vector3.zero;
+        //     newPlatPosition = Vector3.zero;
+        // }
 
-        if (differenceVector != Vector3.zero) {
-            //apply difference to player position;
-            Vector2 diffVec2D = new Vector2(differenceVector.x,differenceVector.y);
-            if (diffVec2D.y > 0) {
-                diffVec2D.y = 0;
-            }
-            print("applying " + diffVec2D);
-            rb.velocity += diffVec2D;
-        }
+        // if (differenceVector != Vector3.zero) {
+        //     //apply difference to player position;
+        //     Vector2 diffVec2D = new Vector2(differenceVector.x,differenceVector.y);
+        //     if (diffVec2D.y > 0) {
+        //         diffVec2D.y = 0;
+        //     }
+        //     print("applying " + diffVec2D.ToString("F4"));
+        //     rb.velocity += diffVec2D*100;
+        // }
 
     	grounded = groundChecker.grounded;
     	if (jumpHeight != jumpHeightInit) {
@@ -138,9 +136,9 @@ public class playerController : MonoBehaviour
         
         if (grounded) {
             perp = groundChecker.perp;
-            rb.velocity = (velocity + perp*moveInput.x) * runSpeed;
+            rb.velocity += (velocity + perp*moveInput.x) * runSpeed;
         } else {
-            rb.velocity = (velocity + moveInput) * runSpeed;
+            rb.velocity += (velocity + moveInput) * runSpeed;
         }
     }
 }
