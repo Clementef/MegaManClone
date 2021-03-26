@@ -21,18 +21,24 @@ public class playerController : MonoBehaviour
     bool left,right,up,down;
     bool oldJumpInput = false;
     bool jumping = false;
+    public Transform followPlatform = null;
+    Vector3 oldPlatPosition;
+    Vector3 newPlatPosition;
 
     void Start() {
     	rb = GetComponent<Rigidbody2D>();
-    	velocity = new Vector2(0,0);
-    	accel = new Vector2(0,0);
-    	jumpVec = new Vector2(0,0);
+    	velocity = Vector2.zero;
+    	accel = Vector2.zero;
+    	jumpVec = Vector2.zero;
     	gravity = new Vector2(0,-g);
     	grounded = groundChecker.grounded;
         perp = groundChecker.perp;
 
     	jumpHeightInit = jumpHeight;
     	jumpVel = Mathf.Sqrt(2*g*jumpHeight);
+
+        oldPlatPosition = Vector3.zero;
+        newPlatPosition = Vector3.zero;
     }
 
     void Update()
@@ -58,7 +64,7 @@ public class playerController : MonoBehaviour
             oldJumpInput=false;
         }
 
-    	moveInput = new Vector2(0,0);
+    	moveInput = Vector2.zero;
 
     	if (left==true||right==true) {
     		if (left==false) {
@@ -78,6 +84,36 @@ public class playerController : MonoBehaviour
     }
 
     void FixedUpdate() {
+        //platform movement
+        rb.velocity = new Vector2(0,0);
+        Vector3 differenceVector = Vector3.zero;
+        if (followPlatform != null) {
+            if (oldPlatPosition == Vector3.zero) {
+                oldPlatPosition = followPlatform.position;
+            } else {
+                print("old pos " + oldPlatPosition);
+                newPlatPosition = followPlatform.position;
+                print("new pos " + newPlatPosition);
+                differenceVector = newPlatPosition-oldPlatPosition;
+                oldPlatPosition = newPlatPosition;
+                newPlatPosition = Vector3.zero;
+                print("generated diference vec" + differenceVector);
+            }
+        } else {
+            oldPlatPosition = Vector3.zero;
+            newPlatPosition = Vector3.zero;
+        }
+
+        if (differenceVector != Vector3.zero) {
+            //apply difference to player position;
+            Vector2 diffVec2D = new Vector2(differenceVector.x,differenceVector.y);
+            if (diffVec2D.y > 0) {
+                diffVec2D.y = 0;
+            }
+            print("applying " + diffVec2D);
+            rb.velocity += diffVec2D;
+        }
+
     	grounded = groundChecker.grounded;
     	if (jumpHeight != jumpHeightInit) {
     		jumpVel = Mathf.Sqrt(2*g*jumpHeight);
@@ -98,7 +134,7 @@ public class playerController : MonoBehaviour
     	}
     	
     	velocity += accel;
-    	accel = new Vector2(0,0);
+    	accel = Vector2.zero;
         
         if (grounded) {
             perp = groundChecker.perp;

@@ -9,14 +9,14 @@ public class groundChecker : MonoBehaviour
 	public Vector2 normal;
 	public Vector2 perp;
 	public Vector2 contactPoint;
-	GameObject player;
+	playerController pc;
 	CircleCollider2D feetCollider;
 
 	void Start () {
 		normal = new Vector2(0,0);
 		perp = new Vector2(0,0);
 		feetCollider = GetComponent<CircleCollider2D>();
-		player = transform.parent.gameObject;
+		pc = transform.parent.gameObject.GetComponent<playerController>();
 	}
 
 	void OnCollisionEnter2D(Collision2D collider)
@@ -33,7 +33,7 @@ public class groundChecker : MonoBehaviour
 	void OnCollisionExit2D(Collision2D collider)
 	{
 	    grounded = false;
-	    player.transform.parent = null;
+	    pc.followPlatform = null;
 	    normal = new Vector2(0,0);
 	    contactPoint = new Vector2(0,0);
 	    perp = new Vector2(0,0);
@@ -59,7 +59,7 @@ public class groundChecker : MonoBehaviour
 			hits = Physics2D.RaycastAll(circleCenter + radiusVector, castDirection, 0.05f, groundMask);
 			foreach (RaycastHit2D hit in hits) {
 				if (hit.transform.parent.tag == "MovingPlatform") {
-					//do something with the moving pla
+					pc.followPlatform = hit.transform;
 				}
 			}
 			
@@ -69,7 +69,7 @@ public class groundChecker : MonoBehaviour
 			//Debug.DrawRay(contactPoint, perp/10, Color.red, .1f);
 		} else {
 			hits = null;
-			player = null;
+			pc.followPlatform = null;
 		}
 
 	    if (hits.Length>0) {

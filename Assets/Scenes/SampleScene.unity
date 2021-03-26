@@ -4186,6 +4186,7 @@ MonoBehaviour:
   g: 0.1
   jumpHeight: 10
   groundChecker: {fileID: 1364403019}
+  followPlatform: {fileID: 0}
 --- !u!61 &1757456132
 BoxCollider2D:
   m_ObjectHideFlags: 0
