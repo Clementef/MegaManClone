@@ -25,6 +25,10 @@ public class Bullet : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col) {
+        enemyHealth eh = col.transform.gameObject.GetComponent<enemyHealth>();
+        if (eh) {
+            eh.Damage(1);
+        }
     	Destroy(gameObject);
     }
 }
